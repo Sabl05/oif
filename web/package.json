@@ -12,6 +12,6 @@
     },
     "dependencies": {
         "@jkryszto/mdb-for-laravel": "^1.0.0",
-        "mdb-ui-kit": "^6.3.1"
+        "glidejs": "^2.1.0"
     }
 }

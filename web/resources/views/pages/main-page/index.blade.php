@@ -2,12 +2,34 @@
 
 @section('content')
 
+    <style></style>
+
+
+    <section class="section slider-section">
+        <div class="container slider-column">
+            <div class="slider-inner" id="slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?animal" alt="Slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?nature" alt="Slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?people" alt="Slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?fruits" alt="Slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?travel" alt="Slider">
+                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?flower" alt="Slider">
+            </div>
+            <span role="tablist" class="pagination"></span>
+            <span class="slider-prev"><i class="bx bx-chevron-left"></i></span>
+            <span class="slider-next"><i class="bx bx-chevron-right"></i></span>
+        </div>
+    </section>
+
 <!-- intro -->
 <section class="pt-3">
     <div class="container">
+
+
+
         <div class="row gx-3">
-            <main class="col-lg-9">
-                <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+            <div class="col-lg-9">
+                <div class="card-banner p-5 bg-primary rounded-5 banner-item" style="height: 350px;">
                     <div style="max-width: 500px;">
                         <h2 class="text-white">
                             Great products with <br />
@@ -17,17 +39,22 @@
                         <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
                     </div>
                 </div>
-            </main>
-            <aside class="col-lg-3">
-                <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
-                    <div class="card-body text-center pb-5">
-                        <h5 class="pt-5 text-white">Amazing Gifts</h5>
-                        <p class="text-white">No matter how far along you are in your sophistication</p>
-                        <a href="#" class="btn btn-outline-light"> View more </a>
+                <div class="card-banner p-5 bg-primary rounded-5 banner-item" style="height: 350px;">
+                    <div style="max-width: 500px;">
+                        <h2 class="text-white">
+                            Great products with <br />
+                            best deals
+                        </h2>
+                        <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+                        <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
                     </div>
                 </div>
-            </aside>
+            </div>
         </div>
+
+
+
+
         <!-- row //end -->
     </div>
     <!-- container end.// -->
@@ -418,5 +445,37 @@
     </div>
 </section>
 <!-- Recommended -->
+
+
+<script>
+    // Glider configuration
+    new Glide(document.getElementById("slider"), {
+        // Optional parameters
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        draggable: true,
+        rewind: true,
+        duration: 0.5,
+        dots: ".pagination",
+        arrows: {
+            prev: ".slider-prev",
+            next: ".slider-next"
+        },
+
+        // Responsive breakpoints
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1.5,
+                    scrollLock: false,
+                    rewind: true
+                }
+            }
+        ]
+    });
+
+</script>
+
 
 @endsection
