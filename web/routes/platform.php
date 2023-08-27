@@ -18,6 +18,7 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Orchid\Screens\Category\CategoryListScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,41 +63,45 @@ Route::screen('users', UserListScreen::class)
         ->parent('platform.index')
         ->push(__('Users'), route('platform.systems.users')));
 
-// Platform > System > Roles > Role
-Route::screen('roles/{role}/edit', RoleEditScreen::class)
-    ->name('platform.systems.roles.edit')
-    ->breadcrumbs(fn (Trail $trail, $role) => $trail
-        ->parent('platform.systems.roles')
-        ->push($role->name, route('platform.systems.roles.edit', $role)));
+// Platform > System > Categories
+Route::screen('categories', CategoryListScreen::class)
+    ->name('platform.categories');
 
-// Platform > System > Roles > Create
-Route::screen('roles/create', RoleEditScreen::class)
-    ->name('platform.systems.roles.create')
-    ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.systems.roles')
-        ->push(__('Create'), route('platform.systems.roles.create')));
-
-// Platform > System > Roles
-Route::screen('roles', RoleListScreen::class)
-    ->name('platform.systems.roles')
-    ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.index')
-        ->push(__('Roles'), route('platform.systems.roles')));
-
-// Example...
-Route::screen('example', ExampleScreen::class)
-    ->name('platform.example')
-    ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.index')
-        ->push('Example Screen'));
-
-Route::screen('/form/examples/fields', ExampleFieldsScreen::class)->name('platform.example.fields');
-Route::screen('/form/examples/advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
-Route::screen('/form/examples/editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
-Route::screen('/form/examples/actions', ExampleActionsScreen::class)->name('platform.example.actions');
-
-Route::screen('/layout/examples/layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
-Route::screen('/charts/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
-Route::screen('/cards/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
-
+//// Platform > System > Roles > Role
+//Route::screen('roles/{role}/edit', RoleEditScreen::class)
+//    ->name('platform.systems.roles.edit')
+//    ->breadcrumbs(fn (Trail $trail, $role) => $trail
+//        ->parent('platform.systems.roles')
+//        ->push($role->name, route('platform.systems.roles.edit', $role)));
+//
+//// Platform > System > Roles > Create
+//Route::screen('roles/create', RoleEditScreen::class)
+//    ->name('platform.systems.roles.create')
+//    ->breadcrumbs(fn (Trail $trail) => $trail
+//        ->parent('platform.systems.roles')
+//        ->push(__('Create'), route('platform.systems.roles.create')));
+//
+//// Platform > System > Roles
+//Route::screen('roles', RoleListScreen::class)
+//    ->name('platform.systems.roles')
+//    ->breadcrumbs(fn (Trail $trail) => $trail
+//        ->parent('platform.index')
+//        ->push(__('Roles'), route('platform.systems.roles')));
+//
+//// Example...
+//Route::screen('example', ExampleScreen::class)
+//    ->name('platform.example')
+//    ->breadcrumbs(fn (Trail $trail) => $trail
+//        ->parent('platform.index')
+//        ->push('Example Screen'));
+//
+//Route::screen('/form/examples/fields', ExampleFieldsScreen::class)->name('platform.example.fields');
+//Route::screen('/form/examples/advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
+//Route::screen('/form/examples/editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
+//Route::screen('/form/examples/actions', ExampleActionsScreen::class)->name('platform.example.actions');
+//
+//Route::screen('/layout/examples/layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
+//Route::screen('/charts/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
+//Route::screen('/cards/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
+//
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

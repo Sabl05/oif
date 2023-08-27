@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shop</title>
 
-    <!-- Scripts -->
+    <!-- External scripts and styles  -->
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 <style>
