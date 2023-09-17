@@ -2,24 +2,6 @@
 
 @section('content')
 
-    <style></style>
-
-
-    <section class="section slider-section">
-        <div class="container slider-column">
-            <div class="slider-inner" id="slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?animal" alt="Slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?nature" alt="Slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?people" alt="Slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?fruits" alt="Slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?travel" alt="Slider">
-                <img class="slider-image" src="https://source.unsplash.com/1920x1280/?flower" alt="Slider">
-            </div>
-            <span role="tablist" class="pagination"></span>
-            <span class="slider-prev"><i class="bx bx-chevron-left"></i></span>
-            <span class="slider-next"><i class="bx bx-chevron-right"></i></span>
-        </div>
-    </section>
 
 <!-- intro -->
 <section class="pt-3">
@@ -39,7 +21,7 @@
                         <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
                     </div>
                 </div>
-                <div class="card-banner p-5 bg-primary rounded-5 banner-item" style="height: 350px;">
+                <!-- <div class="card-banner p-5 bg-primary rounded-5 banner-item" style="height: 350px;">
                     <div style="max-width: 500px;">
                         <h2 class="text-white">
                             Great products with <br />
@@ -48,12 +30,9 @@
                         <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
                         <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-
-
-
 
         <!-- row //end -->
     </div>
