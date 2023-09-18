@@ -9,12 +9,14 @@ use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
 use Orchid\Filters\Types\WhereDateStartEnd;
 use Orchid\Screen\AsSource;
+use Orchid\Attachment\Attachable;
 
 class ProductCategory extends Model
 {
     use HasFactory;
     use AsSource;
     use Filterable;
+    use Attachable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +26,8 @@ class ProductCategory extends Model
     protected $fillable = [
         'name',
         'margin_default',
+        'image_filename',
+        'parent_id'
     ];
 
     /**

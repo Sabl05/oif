@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('margin_default', 10, 2);
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->constrained('product_categories')
+                ->onDelete('cascade');
+            $table->string('image_filename');
             $table->timestamps();
             $table->softDeletes();
         });

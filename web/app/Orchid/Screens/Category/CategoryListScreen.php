@@ -4,10 +4,13 @@ namespace App\Orchid\Screens\Category;
 
 use App\Models\ProductCategory;
 use App\Orchid\Layouts\Category\CategoryListTable;
+use Illuminate\Http\Request;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
+use App\Orchid\Layouts\Category\CreateOrUpdateCategory;
+use Orchid\Support\Facades\Toast;
 
 class CategoryListScreen extends Screen
 {
@@ -52,6 +55,7 @@ class CategoryListScreen extends Screen
             ModalToggle::make('Создать категорию')
                 ->modal('createCategory')
                 ->icon('bs.plus-circle')
+                ->method('createOrUpdateCategory')
         ];
     }
 
@@ -65,17 +69,41 @@ class CategoryListScreen extends Screen
         return [
             CategoryListTable::class,
 
-            Layout::modal('createCategory', Layout::rows([
-                Input::make('user.name')
-                    ->type('text')
-                    ->max(255)
-                    ->required()
-                    ->title(__('Name'))
-                    ->placeholder(__('Name')),
+            Layout::modal('createCategory', CreateOrUpdateCategory::class)
+                ->title('Создать категорию')
+                ->applyButton('Создать'),
 
-                Input::make('file')
-                    ->type('file')
-            ])),
+            Layout::modal('editCategory', CreateOrUpdateCategory::class)->async('asyncGetCategory')
         ];
+    }
+
+    public function asyncGetCategory(ProductCategory $category) : array
+    {
+        $category->load('image_filename');
+        return [
+          'category' => $category
+        ];
+    }
+
+    public function createOrUpdateCategory(Request $request) : void
+    {
+        $category_id = $request->input('category.id');
+
+        $category = ProductCategory::updateOrCreate([
+            'id' => $category_id
+        ], $request->all()['category']);
+
+        $category->attachment()->syncWithoutDetaching(
+            $request->input('client.image_input', [])
+        );
+
+        is_null($category_id) ? Toast::info('Клиент создан') : Toast::info('Клиент обновлен');
+    }
+
+    public function remove(Request $request): void
+    {
+        ProductCategory::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('User was removed'));
     }
 }
